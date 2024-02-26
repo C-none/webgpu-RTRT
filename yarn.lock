@@ -117,6 +117,18 @@
   resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.19.12.tgz"
   integrity sha512-T1QyPSDCyMXaO3pzBkF96E8xMkiRYbUEZADd29SyPGabqxMViNoii+NcK7eWJAEoU6RZyEm5lVSIjTmcdoB9HA==
 
+"@orillusion/core@^0.7.0", "@orillusion/core@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.npmjs.org/@orillusion/core/-/core-0.7.2.tgz#cf09924b47ddb009b5f29444a2c9361c2b22281b"
+  integrity sha512-GeH1coIFjNWJRm8RKRd3dFwpJfDoZPbEI3cNxJnqivKKWN49HlzlOiq4RGnDcxZMdvljoB3uGVXOuzEeaLp3qA==
+
+"@orillusion/stats@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/@orillusion/stats/-/stats-0.2.2.tgz#4909e9e2f16b0e1cdf55d3d707ad5f8159db624c"
+  integrity sha512-sXzaUT4WBz/rnY+qXZkCRzEalnec7Z+k7BTlFQGIshhzxYbnZD90sLZongc3390uWXw8Y551Ev1wKGw1sXCitw==
+  dependencies:
+    "@orillusion/core" "^0.7.0"
+
 "@rollup/rollup-android-arm-eabi@4.12.0":
   version "4.12.0"
   resolved "https://registry.npmjs.org/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.12.0.tgz#38c3abd1955a3c21d492af6b1a1dca4bb1d894d6"
@@ -233,7 +245,7 @@ fsevents@~2.3.2, fsevents@~2.3.3:
 
 gl-matrix@^3.4.3:
   version "3.4.3"
-  resolved "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.3.tgz#fc1191e8320009fd4d20e9339595c6041ddc22c9"
+  resolved "https://registry.npmjs.org/gl-matrix/-/gl-matrix-3.4.3.tgz"
   integrity sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA==
 
 nanoid@^3.3.7:
