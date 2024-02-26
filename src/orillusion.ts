@@ -39,7 +39,7 @@ class Sample_Boxes {
                 obj.rotationX = Math.random() * 90
                 obj.rotationY = Math.random() * 90
                 obj.rotationZ = Math.random() * 90
-                scene.addChild(obj)
+                // scene.addChild(obj)
             }
 
         }
@@ -58,7 +58,7 @@ class Sample_Boxes {
                 obj.setMatrixAt(i, transformMatrix)
                 // transformMatrix.matrixRotate(Math.random()*Math.PI/2,new Vector3(1,0,0),
             }
-            // scene.addChild(obj)
+            scene.addChild(obj)
         }
 
     }
