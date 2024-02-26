@@ -202,15 +202,14 @@ async function run() {
     device.queue.writeBuffer(pipelineObj.mvpBuffer, 0, mvpBuffer)
     draw(device, context, pipelineObj)
     // update timestamp
-    const now = Date.now()
-    const delta = now - timestamp
-    if (delta > 1000) {
+    if (cnt == 30) {
+      const now = Date.now()
+      // present fps on screen fixed 2 decimal
+      document.querySelector('span')!.textContent = (1000 * 30 / (now - timestamp)).toFixed(2)
       timestamp = now
-      const fps = cnt * 1000 / delta
-      document.querySelector('span')!.textContent = `FPS: ${fps.toFixed(2)}`
       cnt = 0
     } else {
-      ++cnt
+      cnt++
     }
     requestAnimationFrame(frame)
   }
