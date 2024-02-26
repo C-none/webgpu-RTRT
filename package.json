@@ -15,6 +15,7 @@
   "dependencies": {
     "@types/dom-webcodecs": "^0.1.11",
     "@webgpu/types": "^0.1.40",
+    "gl-matrix": "^3.4.3",
     "webgpu": "^0.1.16"
   }
 }
