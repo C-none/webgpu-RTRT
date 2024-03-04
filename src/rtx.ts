@@ -248,7 +248,6 @@ function createShaderBindingTable(
 }
 
 async function main(canvas: HTMLCanvasElement) {
-    console.log(canvas);
     if (!navigator.gpu || !navigator.gpu.requestAdapter) {
         throw 'WebGPU is not supported or not enabled, please check chrome://flags/#enable-unsafe-webgpu';
     }
@@ -318,6 +317,9 @@ async function main(canvas: HTMLCanvasElement) {
         }]
     });
 
+    let cnt = 0;
+    let last = performance.now();
+
     function frame() {
         const commandEncoder = device.createCommandEncoder();
         const textureView = context!.getCurrentTexture().createView();
@@ -353,7 +355,17 @@ async function main(canvas: HTMLCanvasElement) {
             passEncoder.end();
         }
         device.queue.submit([commandEncoder.finish()]);
-        console.log('frame');
+        cnt++;
+        if (cnt % 60 === 0) {
+            const now = performance.now();
+            let fps = 60 / ((now - last) / 1000);
+            // show in span HTMLCanvasElement
+            let span = document.getElementById('span');
+            if (span) {
+                span.innerText = `fps: ${fps.toFixed(2)}`;
+            }
+            last = now;
+        }
         requestAnimationFrame(frame);
     }
 
