@@ -1,9 +1,4 @@
 import 'webrtx';
-
-await fetch('1b9b1c7f8050b82bba79.module.wasm');
-await fetch('9872f9b74e1dafabb95b.module.wasm');
-await fetch('a7548f7ddf9ecb492bcf.module.wasm');
-
 const RAY_GENERATION_SHADER = `
 #version 460
 #extension GL_EXT_ray_tracing : enable
