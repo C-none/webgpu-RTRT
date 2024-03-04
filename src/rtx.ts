@@ -372,10 +372,5 @@ async function main(canvas: HTMLCanvasElement) {
     requestAnimationFrame(frame);
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        await main(document.querySelector('canvas') as HTMLCanvasElement);
-    } catch (e) {
-        alert(e)
-    }
-});
+main(document.querySelector('canvas') as HTMLCanvasElement);
+
