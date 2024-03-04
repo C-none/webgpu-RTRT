@@ -1,23 +1,31 @@
 {
   "name": "webgpu-rtrt",
+  "license": "MIT",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "webpack serve --env development",
+    "build": "webpack --env production",
+    "serve": "serve docs"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "vite": "^5.1.4"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@orillusion/core": "^0.7.2",
     "@orillusion/stats": "^0.2.2",
-    "@types/dom-webcodecs": "^0.1.11",
     "@webgpu/types": "^0.1.40",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
     "gl-matrix": "^3.4.3",
-    "webgpu": "^0.1.16"
+    "html-loader": "^5.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "serve": "^14.2.1",
+    "ts-loader": "^9.5.1",
+    "webgpu": "^0.1.16",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2",
+    "webrtx": "^0.1.1"
   }
 }

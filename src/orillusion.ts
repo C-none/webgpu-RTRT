@@ -56,7 +56,6 @@ class Sample_Boxes {
                 matrixRotate(rand * Math.PI / 2, new Vector3(1, 0, 0), transformMatrix)
                 transformMatrix.translate(new Vector3(Math.random() * 200 - 100, Math.random() * 200 - 100, Math.random() * 200 - 100))
                 obj.setMatrixAt(i, transformMatrix)
-                // transformMatrix.matrixRotate(Math.random()*Math.PI/2,new Vector3(1,0,0),
             }
             scene.addChild(obj)
         }
