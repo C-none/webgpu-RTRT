@@ -3,6 +3,11 @@
   "license": "MIT",
   "private": true,
   "version": "0.0.0",
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "dev": "webpack serve --env development",
     "build": "webpack --env production",
@@ -14,6 +19,7 @@
   "dependencies": {
     "@orillusion/core": "^0.7.2",
     "@orillusion/stats": "^0.2.2",
+    "@types/node": "^20.11.24",
     "@webgpu/types": "^0.1.40",
     "copy-webpack-plugin": "^12.0.2",
     "gl-matrix": "^3.4.3",
@@ -25,6 +31,7 @@
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.2",
+    "webpack-glsl-loader": "^1.0.1",
     "webrtx": "^0.1.1"
   }
 }

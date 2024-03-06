@@ -33,21 +33,24 @@ module.exports = (env) => {
           //   exclude: /node_modules/,
         },
         {
-          test: /\.html$/,
-          use: [
-            {
-              loader: "html-loader",
-              options: { minimize: true },
-            },
-          ],
+          test: /\.glsl$/,
+          use: "webpack-glsl-loader",
         },
+        // {
+        //   test: /\.html$/,
+        //   use: [
+        //     {
+        //       loader: "html-loader",
+        //       options: { minimize: true },
+        //     },
+        //   ],
+        // },
       ],
     },
     resolve: {
       extensions: [".ts", ".js"],
     },
     devServer: {
-      //   hot: true,
       open: true,
       port: 3000,
     },

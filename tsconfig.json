@@ -22,6 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "types": [
       "@webgpu/types",
+      "@types/node",
     ]
   },
   "include": [
