@@ -52,7 +52,6 @@ module.exports = (env) => {
     },
     devServer: {
       open: true,
-      port: 3000,
     },
     devtool: dev && "inline-source-map",
     plugins: [
