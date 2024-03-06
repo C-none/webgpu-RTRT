@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const ROOT = path.resolve(__dirname);
 const DESTINATION = path.resolve(__dirname, "docs");
@@ -54,7 +53,6 @@ module.exports = (env) => {
     },
     devtool: dev && "inline-source-map",
     plugins: [
-      new CleanWebpackPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         template: "./index.html",

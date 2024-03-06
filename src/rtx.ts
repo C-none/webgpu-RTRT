@@ -1,4 +1,14 @@
 import 'webrtx';
+
+// let response = await fetch("9872f9b74e1dafabb95b.module.wasm")
+// console.log(response)
+
+// response = await fetch("a7548f7ddf9ecb492bcf.module.wasm")
+// console.log(response)
+
+// response = await fetch('1b9b1c7f8050b82bba79.module.wasm')
+// console.log(response)
+
 const RAY_GENERATION_SHADER = `
 #version 460
 #extension GL_EXT_ray_tracing : enable
@@ -280,11 +290,11 @@ async function main(canvas: HTMLCanvasElement) {
     // bind groups
     const pixelBuffer = device.createBuffer({
         size: canvas.width * canvas.height * 4 * Float32Array.BYTES_PER_ELEMENT,
-        usage: GPUBufferUsage.STORAGE
+        usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC
     });
     const resolutionUniformBuffer = device.createBuffer({
         size: 2 * Float32Array.BYTES_PER_ELEMENT,
-        usage: GPUBufferUsage.UNIFORM,
+        usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
         mappedAtCreation: true,
     });
     new Float32Array(resolutionUniformBuffer.getMappedRange()).set(new Float32Array([
@@ -322,7 +332,7 @@ async function main(canvas: HTMLCanvasElement) {
 
     function frame() {
         const commandEncoder = device.createCommandEncoder();
-        const textureView = context!.getCurrentTexture().createView();
+
 
         // ray tracing pass
         {
@@ -339,6 +349,7 @@ async function main(canvas: HTMLCanvasElement) {
             );
             passEncoder.end();
         }
+        const textureView = context!.getCurrentTexture().createView();
         // rasterization pass
         {
             const passEncoder = commandEncoder.beginRenderPass({
@@ -356,13 +367,13 @@ async function main(canvas: HTMLCanvasElement) {
         }
         device.queue.submit([commandEncoder.finish()]);
         cnt++;
-        if (cnt % 60 === 0) {
+        if (cnt % 100 === 0) {
             const now = performance.now();
-            let fps = 60 / ((now - last) / 1000);
+            let fps = 100 / ((now - last) / 1000);
             // show in span HTMLCanvasElement
             let span = document.getElementById('span');
             if (span) {
-                span.innerText = `fps: ${fps.toFixed(2)}`;
+                span.innerText = `fps: ${fps.toFixed(1)}`;
             }
             last = now;
         }
