@@ -23,6 +23,7 @@
     "types": [
       "@webgpu/types",
       "@types/node",
+      "@types/three",
     ]
   },
   "include": [

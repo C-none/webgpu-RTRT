@@ -15,37 +15,25 @@ module.exports = (env) => {
     context: ROOT,
     mode,
     target: "web",
-    entry: "./src/rtx.ts",
+    entry: "./src/bistro_gl.ts",
     output: {
       filename: "index.js",
       path: DESTINATION,
     },
     module: {
       rules: [
-        // {
-        //   test: /\.js$/,
-        //   use: "babel-loader",
-        //   exclude: /node_modules/,
-        // },
         {
           test: /\.ts$/,
           use: "ts-loader",
-          //   exclude: /node_modules/,
         },
         {
           test: /\.glsl$/,
           use: "webpack-glsl-loader",
         },
-        // {
-        //   test: /\.html$/,
-        //   use: [
-        //     {
-        //       loader: "html-loader",
-        //       options: { minimize: true },
-        //     },
-        //   ],
-        // },
       ],
+    },
+    stats: {
+      warningsFilter: ["./node_modules"],
     },
     resolve: {
       extensions: [".ts", ".js"],
