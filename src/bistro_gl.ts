@@ -31,9 +31,9 @@ function init() {
 
             // model
 
-            const loader = new GLTFLoader().setPath('./bistro_internal/');
+            const loader = new GLTFLoader().setPath('./sponza/');
 
-            loader.load('internal.gltf', async function (gltf) {
+            loader.load('Sponza.gltf', async function (gltf) {
 
                 const model = gltf.scene;
                 // let rmid: string[] = [];
@@ -71,12 +71,14 @@ function init() {
         });
 
 
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        logarithmicDepthBuffer: true,
+    });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1;
-    (renderer as any).logarithmicDepthBuffer = true;
     container.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
