@@ -17,8 +17,10 @@ module.exports = (env) => {
     target: "web",
     entry: "./src/bistro_gl.ts",
     output: {
-      filename: "index.js",
+      filename: "bundle.js",
       path: DESTINATION,
+      // publicPath: "./public/",
+      clean: true,
     },
     module: {
       rules: [
@@ -53,6 +55,10 @@ module.exports = (env) => {
           {
             from: "*.wasm",
             context: path.resolve(__dirname, "node_modules/webrtx/dist"),
+          },
+          {
+            from: path.resolve(__dirname, "public"),
+            to: DESTINATION,
           },
         ],
       }),

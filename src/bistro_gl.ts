@@ -13,13 +13,13 @@ function init() {
     document.body.appendChild(container);
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.0001, 2000);
-    camera.position.set(0, 1, 1);
+    camera.position.set(2, 2, 0);
 
     scene = new THREE.Scene();
     // model
 
     new RGBELoader()
-        .setPath('./')
+        .setPath('./assets/')
         .load('san_giuseppe_bridge_4k.hdr', function (texture) {
 
             texture.mapping = THREE.EquirectangularReflectionMapping;
@@ -31,7 +31,7 @@ function init() {
 
             // model
 
-            const loader = new GLTFLoader().setPath('./sponza/');
+            const loader = new GLTFLoader().setPath('./assets/sponza/');
 
             loader.load('Sponza.gltf', async function (gltf) {
 
@@ -85,7 +85,7 @@ function init() {
     controls.addEventListener('change', render); // use if there is no animation loop
     controls.minDistance = 0.0001;
     controls.maxDistance = 1000;
-    controls.target.set(0, 0.1, 0);
+    controls.target.set(0, 2, 0);
     controls.update();
 
     window.addEventListener('resize', onWindowResize);
